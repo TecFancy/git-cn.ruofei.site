@@ -38,9 +38,9 @@ jobs:
     - name: Initialize and configurate git repository 
       run: |
         cd ./src/.vuepress/dist
-        git init
         git config user.name 'ruofei'
         git config user.email 'rf.wangchn@gmail.com'
+        git init
     - name: Publish
       run: |
         git add .
