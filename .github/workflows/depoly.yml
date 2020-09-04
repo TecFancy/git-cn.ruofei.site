@@ -35,15 +35,18 @@ jobs:
         yarn
         yarn build
         cp CNAME ./src/.vuepress/dist
+      shell: bash
     - name: Initialize and configurate git repository 
+      working-directory: ./src/.vuepress/dist
       run: |
-        cd ./src/.vuepress/dist
         git config user.name 'ruofei'
         git config user.email 'rf.wangchn@gmail.com'
+      shell: bash
     - name: Publish
       run: |
         git init
         git add .
         git commit -m 'Deploy Vuepress site'
-        git push --force https://${ACCESS_TOKEN}@github.com/git-cn.ruofei.site.git master:gh-pages
+        git push --force https://${ACCESS_TOKEN}@github.com/smpower/git-cn.ruofei.site.git master:gh-pages
         echo "Vuepress site has deployed to GitHub Pages."
+      shell: bash
