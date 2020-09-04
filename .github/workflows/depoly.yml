@@ -31,14 +31,21 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-yarn-
     - name: Install dependencies & Build static
-      run: yarn && yarn build
+      run: |
+        yarn &&
+        yarn build &&
+        cp ./CNAME ./src/.vuepress/dist
     - name: Copy CNAME file to dist folder & cd dist folder
-      run: cp ./CNAME ./src/.vuepress/dist && cd ./src/.vuepress/dist
-    - name: Initialize git repository & configurate it
-      run: git init && git config user.name 'ruofei' && git config user.email 'rf.wangchn@gmail.com'
-    - name: Commited
-      run: git add . && git commit -m 'Deploy Vuepress site'
+      run:  ./src/.vuepress/dist && 
+    - name: Initialize and configurate git repository 
+      run: |
+        cd ./src/.vuepress/dist &&
+        git init &&
+        git config user.name 'ruofei' &&
+        git config user.email 'rf.wangchn@gmail.com'
     - name: Publish
-      run: git push --force --quiet "https://${ACCESS_TOKEN}@github.com/smpower/git.ruofei.site.git" master:gh-pages # 发布到 gh-pages 分支
-    - name: End
-      run: echo "Vuepress site has deployed to GitHub Pages."
+      run: |
+        git add . &&
+        git commit -m 'Deploy Vuepress site' &&
+        git push --force --quiet "https://${ACCESS_TOKEN}@github.com/smpower/git-cn.ruofei.site.git" master:gh-pages # 发布到 gh-pages 分支
+        echo "Vuepress site has deployed to GitHub Pages."
