@@ -34,16 +34,19 @@ jobs:
       run: |
         yarn \
         yarn build \
-        cp CNAME src/.vuepress/dist
+        cp CNAME src/.vuepress/dist \
+        exit
     - name: Initialize and configurate git repository 
       run: |
         cd src/.vuepress/dist \
         git init \
         git config user.name 'ruofei' \
-        git config user.email 'rf.wangchn@gmail.com'
+        git config user.email 'rf.wangchn@gmail.com' \
+        exit
     - name: Publish
       run: |
         git add . \
         git commit -m 'Deploy Vuepress site' \
         git push --force --quiet "https://${ACCESS_TOKEN}@github.com/smpower/git-cn.ruofei.site.git" master:gh-pages \
-        echo "Vuepress site has deployed to GitHub Pages."
+        echo "Vuepress site has deployed to GitHub Pages." \
+        exit
