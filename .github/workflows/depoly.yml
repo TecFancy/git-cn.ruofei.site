@@ -30,20 +30,20 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn-
-    - id: Install dependencies and Generate static resources
+    - name: Install dependencies and Generate static resources
       run: |
-        yarn \
-        yarn build \
+        yarn
+        yarn build
         cp CNAME src/.vuepress/dist
-    - id: Initialize and configurate git repository 
+    - name: Initialize and configurate git repository 
       run: |
-        cd src/.vuepress/dist \
-        git init \
-        git config user.name 'ruofei' \
+        cd src/.vuepress/dist
+        git init
+        git config user.name 'ruofei'
         git config user.email 'rf.wangchn@gmail.com'
-    - id: Publish
+    - name: Publish
       run: |
-        git add . \
-        git commit -m 'Deploy Vuepress site' \
-        git push --force --quiet "https://${ACCESS_TOKEN}@github.com/smpower/git-cn.ruofei.site.git" master:gh-pages \
+        git add .
+        git commit -m 'Deploy Vuepress site'
+        git push --force --quiet "https://${ACCESS_TOKEN}@github.com/smpower/git-cn.ruofei.site.git" master:gh-pages
         echo "Vuepress site has deployed to GitHub Pages."
