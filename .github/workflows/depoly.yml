@@ -15,12 +15,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: vuepress-deploy
-      uses: jenkey2011/vuepress-deploy@master
+    - name: Build and Deploy
+      uses: rreichel3/vuepress-github-actions-deploy@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_REPO: smpower/git-cn.ruofei.site
-        TARGET_BRANCH: gh-pages
-        BUILD_SCRIPT: yarn && yarn build
-        BUILD_DIR: src/.vuepress/dist/
-        CNAME: git-cn.ruofei.site
+        BUILD_DIR: .src/vuepress/dist/ # The folder, the action should deploy.
+        BUILD_SCRIPT: yarn && yarn build # The build script the action should run prior to deploying.
+        PAGES_CNAME: git-cn.ruofei.site
