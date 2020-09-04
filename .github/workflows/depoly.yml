@@ -9,36 +9,18 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-    - name: Get yarn cache directory path
-      id: yarn-cache-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
+    - name: Checkout
+      uses: actions/checkout@master
 
-    - uses: actions/cache@v2
-      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-      with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
-    - name: Install dependencies
-      run: yarn
-    - name: Build static
-      run: |
-        yarn build
-        cp ./CNAME ./src/.vuepress/dist
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@3.5.9
-      with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}   // 这里需要设置成你的 token
-        BRANCH: gh-pages
-        FOLDER: src/.vuepress/dist
+    - name: vuepress-deploy
+      uses: jenkey2011/vuepress-deploy@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        TARGET_REPO: smpower/git-cn.ruofei.site
+        TARGET_BRANCH: gh-pages
+        BUILD_SCRIPT: yarn && yarn build
+        BUILD_DIR: src/.vuepress/dist/
+        CNAME: https://git-cn.ruofei.site
