@@ -33,13 +33,12 @@ jobs:
     - name: Install dependencies
       run: yarn
     - name: Build static
-      run: yarn build
+      run: |
+        yarn build
+        cp ./CNAME ./src/.vuepress/dist
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+      uses: JamesIves/github-pages-deploy-action@3.5.9
       with:
-        deploy_key: ${{ secrets.ACCESS_TOKEN }} # 这里的 ACCESS_TOKEN 是 Settings 中设置 Private Key 的变量名
-        external_repository: smpower/git-cn.ruofei.site # 远程仓库 
-        publish_dir: ""
-        keep_files: false # remove existing files
-        publish_branch: gh-pages  # deploying branch
-        commit_message: ${{ github.event.head_commit.message }}
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}   // 这里需要设置成你的 token
+        BRANCH: gh-pages
+        FOLDER: src/.vuepress/dist
