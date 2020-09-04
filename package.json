@@ -1,0 +1,25 @@
+{
+  "name": "git.ruofei.site",
+  "version": "0.0.1",
+  "description": "欢迎访问 Git 中文教程",
+  "repository": "",
+  "homepage": "https://git.ruofei.site",
+  "authors": {
+    "name": "ruofei",
+    "email": "rf.wangchn@gmail.com"
+  },
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.5.4",
+    "@vuepress/plugin-blog": "^1.9.2",
+    "@vuepress/plugin-google-analytics": "^1.5.4",
+    "@vuepress/plugin-nprogress": "^1.5.4",
+    "moment": "^2.27.0",
+    "vuepress": "^1.5.3",
+    "vuepress-plugin-comment": "^0.7.3"
+  }
+}
