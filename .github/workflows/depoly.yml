@@ -34,13 +34,13 @@ jobs:
       run: |
         yarn &&
         yarn build &&
-        cp ./CNAME ./src/.vuepress/dist
+        cp CNAME src/.vuepress/dist &&
     - name: Initialize and configurate git repository 
       run: |
-        cd ./src/.vuepress/dist &&
+        cd src/.vuepress/dist &&
         git init &&
         git config user.name 'ruofei' &&
-        git config user.email 'rf.wangchn@gmail.com'
+        git config user.email 'rf.wangchn@gmail.com' &&
     - name: Publish
       run: |
         git add . &&
