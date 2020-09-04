@@ -45,5 +45,5 @@ jobs:
         git init
         git add .
         git commit -m 'Deploy Vuepress site'
-        git push --force https://${ACCESS_TOKEN}@github.com/smpower/git-cn.ruofei.site.git master:gh-pages
+        git push --force https://${ACCESS_TOKEN}@github.com/git-cn.ruofei.site.git master:gh-pages
         echo "Vuepress site has deployed to GitHub Pages."
