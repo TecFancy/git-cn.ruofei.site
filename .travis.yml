@@ -27,7 +27,7 @@ script:
   - yarn build
 
 after_script:
-  - cd ./src/.vuepress/dist
+  - cp ./CNAME ./src/.vuepress/dist && cd ./src/.vuepress/dist
   - git init
   - git config --global user.name "ruofei"
   - git config --global user.email "rf.wangchn@gmail.com"
