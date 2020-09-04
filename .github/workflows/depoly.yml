@@ -19,6 +19,6 @@ jobs:
       uses: rreichel3/vuepress-github-actions-deploy@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BUILD_DIR: .src/vuepress/dist/ # The folder, the action should deploy.
+        BUILD_DIR: src/.vuepress/dist # The folder, the action should deploy.
         BUILD_SCRIPT: yarn && yarn build # The build script the action should run prior to deploying.
         PAGES_CNAME: git-cn.ruofei.site
