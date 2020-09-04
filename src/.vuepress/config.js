@@ -36,68 +36,68 @@ module.exports = {
     lastUpdated: '上次更新',
     smoothScroll: true, // 页面滚动
     nav: [
-      {
-        text: 'Guide',
-        link: '/guide/',
-      },
-      {
-        text: 'Config',
-        link: '/config/'
-      },
+      // {
+      //   text: 'Guide',
+      //   link: '/guide/',
+      // },
+      // {
+      //   text: 'Config',
+      //   link: '/config/'
+      // },
       {
         text: 'GitHub',
         link: 'https://github.com/smpower/git.ruofei.site'
       }
     ],
     sidebar: {
-      '/guide/': [
-        {
-          title: 'Guide',
-          collapsable: false,
-          children: [
-            '',
-            'using-vue',
-          ]
-        }
-      ],
-      // '/cheat-sheets/': [
+      // '/guide/': [
       //   {
-      //     title: '创建',
+      //     title: 'Guide',
       //     collapsable: false,
-      //     sidebarDepth: 2,
-      //     path: 'create/'
-      //   },
-      //   {
-      //     title: '配置',
-      //     collapsable: false,
-      //     sidebarDepth: 2,
-      //     path: 'configuration/'
-      //   },
-      //   {
-      //     title: '本地更改',
-      //     collapsable: false,
-      //     sidebarDepth: 2,
-      //     path: 'local-changes/'
-      //   },
-      //   {
-      //     title: '提交历史',
-      //     collapsable: false,
-      //     sidebarDepth: 2,
-      //     path: 'commit-history/'
-      //   },
-      //   {
-      //     title: '分支 & 标签',
-      //     collapsable: false,
-      //     sidebarDepth: 2,
-      //     path: 'branches-tags/'
-      //   },
-      //   {
-      //     title: '更新 & 发布',
-      //     collapsable: false,
-      //     sidebarDepth: 2,
-      //     path: 'update-publish/'
+      //     children: [
+      //       '',
+      //       'using-vue',
+      //     ]
       //   }
-      // ]
+      // ],
+      '/cheat-sheets/': [
+        {
+          title: '创建',
+          collapsable: false,
+          sidebarDepth: 2,
+          path: 'create/'
+        },
+        // {
+        //   title: '配置',
+        //   collapsable: false,
+        //   sidebarDepth: 2,
+        //   path: 'configuration/'
+        // },
+        // {
+        //   title: '本地更改',
+        //   collapsable: false,
+        //   sidebarDepth: 2,
+        //   path: 'local-changes/'
+        // },
+        // {
+        //   title: '提交历史',
+        //   collapsable: false,
+        //   sidebarDepth: 2,
+        //   path: 'commit-history/'
+        // },
+        // {
+        //   title: '分支 & 标签',
+        //   collapsable: false,
+        //   sidebarDepth: 2,
+        //   path: 'branches-tags/'
+        // },
+        // {
+        //   title: '更新 & 发布',
+        //   collapsable: false,
+        //   sidebarDepth: 2,
+        //   path: 'update-publish/'
+        // }
+      ]
     }
   },
 
@@ -113,11 +113,11 @@ module.exports = {
     ['@vuepress/search', {
       searchMaxSuggestions: 10
     }],
-    // [
-    //   '@vuepress/google-analytics',
-    //   {
-    //     'ga': 'UA-156423980-1' // UA-00000000-0
-    //   }
-    // ],
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': 'UA-156423980-1' // UA-00000000-0
+      }
+    ],
   ]
 }
