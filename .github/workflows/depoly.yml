@@ -47,5 +47,5 @@ jobs:
       run: |
         git add . &&
         git commit -m 'Deploy Vuepress site' &&
-        git push --force --quiet "https://${ACCESS_TOKEN}@github.com/smpower/git-cn.ruofei.site.git" master:gh-pages # 发布到 gh-pages 分支
+        git push --force --quiet "https://${ACCESS_TOKEN}@github.com/smpower/git-cn.ruofei.site.git" master:gh-pages # 发布到 gh-pages 分支 &&
         echo "Vuepress site has deployed to GitHub Pages."
