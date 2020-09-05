@@ -8,10 +8,6 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  DEPOLY_FOLDER: src/.vuepress/dist
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -25,11 +21,11 @@ jobs:
         run: |
           yarn
           yarn build
-          cp CNAME $DEPOLY_FOLDER
+          cp CNAME src/.vuepress/dist
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
-          GITHUB_TOKEN: $GITHUB_TOKEN
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: $DEPOLY_FOLDER # The folder the action should deploy.
+          FOLDER: src/.vuepress/dist # The folder the action should deploy.
